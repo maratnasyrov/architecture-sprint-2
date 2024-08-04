@@ -1,10 +1,14 @@
-# Запуск приложения и проверка
+# Схемы
+
+https://disk.yandex.ru/i/rC09R4U166oXeg
+
+# Запуск приложения
 
 ```shell
 docker compose up -d
 ```
 
-## Инициализация
+# Инициализация
 
 Запуск configSrv
 
