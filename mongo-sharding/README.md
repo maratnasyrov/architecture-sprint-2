@@ -25,7 +25,7 @@ EOF
 Инициализация shard1, shard2
 
 ```shell
-docker exec -T shard1 mongosh --port 27018 <<EOF
+docker compose exec -T shard1 mongosh --port 27018 <<EOF
 rs.initiate(
     {
       _id : "shard1",
@@ -39,7 +39,7 @@ EOF
 ```
 
 ```shell
-docker exec -T shard2 mongosh --port 27019 <<EOF
+docker compose exec -T shard2 mongosh --port 27019 <<EOF
 rs.initiate(
     {
       _id : "shard2",
@@ -55,7 +55,7 @@ EOF
 Наполнение данными
 
 ```shell
-docker exec -T mongos_router mongosh --port 27020 <<EOF
+docker compose exec -T mongos_router mongosh --port 27020 <<EOF
 sh.addShard( "shard1/shard1:27018");
 sh.addShard( "shard2/shard2:27019");
 sh.enableSharding("somedb");
